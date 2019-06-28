@@ -29,19 +29,7 @@ export default class Notes extends Component{
 		this.setState({
 			notes: arr
 		})
-	}/*
-	getHashTags(inputText) {  
-        var regex = /(?:^|\s)(?:#)([a-zA-Z\d]+)/gm;
-        var matches = [];
-        var match;
-    
-        while ((match = regex.exec(inputText))) {
-            if (!matches.includes(match[1])) {
-                matches.push(match[1]);
-            }
-        }
-        return matches;
-	}*/
+	}
 	HandleAdd(e){
 		let notes = this.state.notes;
 		notes.push({
