@@ -61,7 +61,7 @@ export default class Note extends Component{
 		<div className="note">
             <div className="note_menu"><input type="button" onClick={e => this.handleSwitch(e)} value="edit"/><input type="button" onClick={e => this.handleDelete(e)} value="delete"/></div>
 			<div className="note_body">
-                { this.state.edit ? <textarea onChange={e => this.handleEdit(e)} className="text_body" rows="10">{this.props.body}</textarea> : <div className="text_body">{this.highlight()}</div> }
+                { this.state.edit ? <textarea onChange={e => this.handleEdit(e)} onBlur={e => this.props.findTag(e)} className="text_body" rows="10">{this.props.body}</textarea> : <div className="text_body">{this.highlight()}</div> }
 			</div>
 			<div className="note_hashtags">
                 { this.tagList() }

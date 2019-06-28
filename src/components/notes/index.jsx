@@ -56,6 +56,25 @@ export default class Notes extends Component{
 			notes: notes
 		})
 	}
+	handleFindTag(e, item){
+		let text = e.target.value;
+		let notes = this.state.notes;
+		let matches = notes[item].tags;
+		const regex = /(?:^|\s)(?:#)([a-zA-Z\d]+)/gm;		
+		let match;
+		
+		while ((match = regex.exec(text))) {	
+            if (!matches.includes(match[1])) {	
+                matches.push(match[1]);	
+			}
+			text = text.replace(match[0], ' '+match[1]);
+		}
+		notes[item].note = text;
+		notes[item].tags = matches;
+		this.setState({
+			notes: notes
+		})
+	}
     list(){
 		let list = this.state.notes.map((note, item) => {
 			if(note.tags.some(note => note.includes(this.state.filter)) || !this.state.filter){
@@ -66,6 +85,7 @@ export default class Notes extends Component{
 					edit={e => this.handleEdit(e, item)} 
 					onDelete={e => this.handleDelete(item)}
 					addTag={e => this.handleAddTag(e, item)}
+					findTag={e => this.handleFindTag(e, item)}
 					tagClick={(e, num) => this.handleTagDelete(e, num, item)} />;
 			};
 			return false;
