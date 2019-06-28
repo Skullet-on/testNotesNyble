@@ -1,0 +1,18 @@
+[
+    {
+        "note": "This is a text with hashtag",
+        "tags": ["text", "hashtag"]
+    },
+    {
+        "note": "This is other text with two hashtags",
+        "tags": ["top", "hashtag"]
+    },
+    {
+        "note": "This is text with multiple hashtags. text",
+        "tags": []
+    },
+    {
+        "note": "This is texp with no hashtags",
+        "tags": ["summer"]
+    }
+]

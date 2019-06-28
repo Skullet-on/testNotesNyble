@@ -1,0 +1,32 @@
+.note {
+    background-image: linear-gradient(#fff1a2, #ffe797);
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+textarea {
+    background-color: #fff1a2;
+}
+.text_body {
+    width: 300px;
+    height: 150px;
+    padding: 0;
+}
+.note_hashtags {
+    display: flex;
+}
+input {
+    border-radius: 10px;
+}
+.tag {
+    background-color: darkgray;
+    border-radius: 10px;
+}
+.tag_button {
+    background-color: rgb(97, 82, 82);
+    border-radius: 10px;
+}
+.notes_list {
+    display: flex;
+}

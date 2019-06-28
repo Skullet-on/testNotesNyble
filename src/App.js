@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Notes from './components/notes';
 
 function App() {
   return (
-    <div className="App">
-      Hello World!
+    <div className="app">
+      <Notes />
     </div>
   );
 }
