@@ -7,7 +7,8 @@ export default class Note extends Component{
 		this.state = {
             edit: false,
             editTag: true,
-            tagvalue: ""
+            tagvalue: "",
+            body: this.props.body
 		}
     }
     handleSwitch(e){
@@ -44,12 +45,23 @@ export default class Note extends Component{
             editTag: !this.state.editTag
         })
     }
+    highlight(){
+        let text = this.props.body;
+        let words = this.props.tags;
+        words.some(tag => {
+            var re = new RegExp(tag,"g");
+            text = text.replace(re, '<span class="text_red">'+tag+'</span>');
+        })
+        const danger_dom = <div dangerouslySetInnerHTML={{__html: text}}/>
+        const dom = <div>{danger_dom}</div>
+        return dom;
+    }
 	render(){
 		return (
 		<div className="note">
             <div className="note_menu"><input type="button" onClick={e => this.handleSwitch(e)} value="edit"/><input type="button" onClick={e => this.handleDelete(e)} value="delete"/></div>
 			<div className="note_body">
-                { this.state.edit ? <textarea onChange={e => this.handleEdit(e)} className="text_body" rows="10">{this.props.body}</textarea> : <div className="text_body">{this.props.body}</div> }
+                { this.state.edit ? <textarea onChange={e => this.handleEdit(e)} className="text_body" rows="10">{this.props.body}</textarea> : <div className="text_body">{this.highlight()}</div> }
 			</div>
 			<div className="note_hashtags">
                 { this.tagList() }

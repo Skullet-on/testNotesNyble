@@ -9,7 +9,7 @@ export default class Notes extends Component{
 			notes: db,
 			filter: ""
 		}
-    }
+	}
     handleFilter(e){
 		this.setState({
 			filter: e.target.value
@@ -25,6 +25,7 @@ export default class Notes extends Component{
 	handleEdit(e, item){
 		let arr = this.state.notes;
 		arr[item].note = e.target.value;
+		
 		this.setState({
 			notes: arr
 		})

@@ -30,3 +30,6 @@ input {
 .notes_list {
     display: flex;
 }
+.text_red {
+    background-color: red;
+}
